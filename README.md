@@ -1,11 +1,15 @@
 # BGCfinder : Biosynthetic Gene Cluster detection with Graph Neural Network
 
-BGCfinder detects biosynthetic gene clusters in bacterial genomes using deep learning. BGCfinder takes a fasta file containing bacterial protein coding sequences and embed each protein sequence into a graph. Graph neural network takes the input graphs to detect biosynthetic gene cluster.
+BGCfinder detects biosynthetic gene clusters in bacterial genomes using deep learning. BGCfinder takes a fasta file containing protein sequences and convert each of them into a graph. Graph neural network takes the input graphs to detect biosynthetic gene cluster.
 
-- Author : Jihun Jeung (jihun@gm.gist.ac.kr, jeung4705@gmail.com, https://github.com/jihunni/BGCfinder), Sunjae Lee (leesunjae@gist.ac.kr)
-- Maintainer : Jihun Jeung 
-
+- Developer : Jihun Jeung (jihun@gm.gist.ac.kr, jeung4705@gmail.com)
+- Github repository : https://github.com/jihunni/BGCfinder
 - PyPI project website : https://pypi.org/project/BGCfinder/
+
+Installation requirement:
+- PyTorch
+- PyTorch Geometric
+- Prodigal (https://github.com/hyattpd/Prodigal)
 
 To construct the conda environment,
 ```bash
@@ -20,6 +24,11 @@ $ pip install BGCfinder
 To download the BGCfinder model and test files,
 ```bash
 $ bgc-download
+```
+
+To find the protein-coding gene in bacterial genome (Installation of `Prodigal` is required for this step),
+```bash
+$ prodigal -f gff -i bacterial_genome_seq.fasta -a bacterial_protein_seq.fasta -o bacterial_genome_seq.gff 
 ```
 
 To run BGCfinder with a fasta file containing amino acid sequence with CPU (recommended),
